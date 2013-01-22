@@ -1,0 +1,89 @@
+fdisk -l
+
+
+pvcreate /dev/sda4 /dev/sdb4
+
+ pvdisplay
+
+vgcreate premvolgroup /dev/sda4 /dev/sdb4
+
+ vgdisplay
+
+ pvdisplay
+
+ lvcreate -L 600MB -n premlogvol premvolgroup
+
+  mkfs.ext3 /dev/premvolgroup/premlogvol
+
+  mount
+
+
+  lvresize -L 700MB /dev/premvolgroup/vinodlogvol
+
+ 
+   resize2fs  /dev/premvolgroup/vinodlogvol
+
+ 
+Lvm can be backup  by
+
+/etc/lvm/backup
+
+and medata archives are 
+
+/etc/lvm/archive
+
+manual backup command 
+
+
+vgcfgbackup 
+
+Restore command 
+
+
+vgcfgrestore
+
+
+Raid 
+
+
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sda4 /dev/sdb4
+  
+
+
+
+ mdadm /dev/md0 -f /dev/sdb4  ///fail a hard disk 
+
+
+ mdadm --remove /dev/md0 /dev/sdb4  ///remove a hardidsk
+
+ cat /proc/mdstat
+
+mount /dev/md0 /vijay/
+
+cat /proc/mdstat
+
+mdadm --create /dev/md0 --chunk=64 --level=raid1 --raid-devices=2 /dev/hda1 /dev/hdc1
+
+mdadm --detail --scan >> /etc/mdadm.conf
+
+mdadm --query /dev/md0
+
+mdadm --query /dev/hda1
+
+mdadm --fail /dev/md0 /dev/hdc1
+
+ 
+DO NOT run this every on a raid0 or linear device or your data is toasted!
+ 
+
+Removing a faulty disk from an array:
+
+# mdadm --remove /dev/md0 /dev/hdc1
+
+Clearing any previous raid info on a disk (eg. reusing a disk from another decommissioned raid array)
+
+# mdadm --zero-superblock /dev/hdc1
+
+Adding a disk to an array
+
+# mdadm --add /dev/md0 /dev/hdc1

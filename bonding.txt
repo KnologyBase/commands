@@ -1,0 +1,40 @@
+To view all existing bonds, even if they are not up, run:
+~]# cat /sys/class/net/bonding_masters
+
+As an example, to enable MII monitoring on bond0 with a 1 second interval, you could run (as root):
+
+~]# echo 1000 > /sys/class/net/bond0/bonding/miimon
+To configure bond0 for balance-alb mode, you could run either:
+~]# echo 6 > /sys/class/net/bond0/bonding/mode
+   
+echo balance-alb > /sys/class/net/bond0/bonding/mode
+
+
+
+configuration 
+
+ vi /etc/modprobe.conf
+
+alias bond0 bnding 
+
+/network-scripts/ifcfg-bond0
+
+DEVICE=bond0
+IPADDR=192.168.1.1
+NETMASK=255.255.255.0
+ONBOOT=yes
+BOOTPROTO=none
+USERCTL=no
+BONDING_OPTS="<bonding parameters separated by spaces>"
+
+
+
+ifcfg-eth0 or eth1 
+
+
+DEVICE=eth<N>
+BOOTPROTO=none
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+USERCTL=no

@@ -1,0 +1,5 @@
+ mount -t cifs  -o username=administrator,password=123456 //192.168.1.2/redhatcd /test/
+
+find  -type f -print0 | xargs -0 grep -i
+
+date -s "17 JAN 2013 06:42:20"

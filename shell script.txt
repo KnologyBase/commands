@@ -1,0 +1,15 @@
+
+
+
+/etc/skel
+
+copies the changes only to the new users and not the old ones 
+
+set
+printencv
+
+print all or part of environment
+
+
+tr   translate characters
+tr  (1)  - translate or delete characters

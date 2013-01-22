@@ -1,0 +1,57 @@
+Dns  BInd 
+
+Version 
+
+bind-utils-9.3.3-7.el5
+bind-9.3.3-7.el5
+bind-libs-9.3.3-7.el5
+ 
+
+53
+
+
+• master — Stores original and authoritative zone records for a namespace, and answers
+queries about the namespace from other nameservers.
+
+• slave — Answers queries from other nameservers concerning namespaces for which it is
+considered an authority. However, slave nameservers get their namespace information from
+master nameservers.
+
+• caching-only — Offers name to IP resolution services but is not authoritative for any zones.
+Answers for all resolutions are cached in memory for a fixed period of time, which is specified
+by the retrieved zone record.
+
+• forwarding — Forwards requests to a specific list of nameservers for name resolution. If
+none of the specified nameservers can perform the resolution, the resolution fails.
+
+3.1. Zone File Directives
+
+
+$INCLUDE — Configures named to include another zone file in this zone file at the place where
+the directive appears. This allows additional zone settings to be stored apart from the main
+zone file.
+
+• $ORIGIN — Appends the domain name to unqualified records, such as those with the hostname
+and nothing more
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

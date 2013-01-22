@@ -1,0 +1,38 @@
+Version 4.3 
+
+port 22
+
+Features:
+ 1. Provides data encryption services based on PKI - Confidentiality
+ 2. Primarily used to protect the transport layer
+ 3. Encrypted shell sessions, file transfers
+ 4. Password-less logins
+ 5. Port forwarding - Pseudo-VPN
+
+SSH Clients:
+/etc/ssh/ssh_config - shared system-wide config file for SSH clients
+
+1. scp - secure, non-interactive, copy program
+ a. scp sample.txt linuxcbt@linuxcbtmedia1:
+ b. scp linuxcbt@linuxcbtmedia1:testRH5/sample.txt sample2.txt
+ c. scp -r /prem/ linuxcbt@linuxcbtmedia1:                             //where prem is a driectory  
+
+ 2. sftp - secure, interactive, FTP-like, copy program
+ a. sftp linuxcbt@linuxcbtmedia1
+
+3. ssh - shell-based client
+ a. ssh linuxcbt@linuxcbtmedia1
+ a. ssh linuxcbt@linuxcbtmedia1 "uptime"
+
+4. ssh-copy-id - permits easy propagation of SSH pub/priv keypair
+ a. ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.75.10
+
+5. ssh-keygen - used to generage SSH pub/priv keypair
+Note: Use '-v' with SSH clients to enable verbosity
+
+ a. ssh-keygen -t rsa
+
+
+----------------
+
+PermitRootLogin no

@@ -1,0 +1,35 @@
+NFS developed by Sun micro suystem 
+
+
+port no 2049
+
+Features 
+
+nfs-utls
+service while starting nfs 
+
+mountd:                                  
+ daemon:                                 
+ quotas:                                  
+ 
+
+
+
+1) Transparent access to remote file system 
+
+
+/path_to directory 
+
+define rules per ip adress or subnet 
+
+
+exportfs -v         show all nfs 
+ 
+exportfs -a          mount nfs all 
+
+mount -t nfs servername or ipadd:/nfs /nfs 
+
+no_root_squash
+
+showmount -e server or ipaddress
+

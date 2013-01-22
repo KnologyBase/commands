@@ -1,0 +1,62 @@
+Updates Must be made on the masterserver 
+
+
+steps For configuring Replicatiom between Master and slave
+
+1) Confirm the binary loging is enabled in Master server
+
+show master status 
+/usr/libexec/mysqld --verbose --help      //tocheck logbin variable configured.
+   
+
+/etc/my.cnf 
+
+log-bin					//by default it takes server hostname as logname if no name is specified 
+log-bin                         = mysql-bin
+
+2) Create a Replication account
+
+GRANT REPLICATION SLAVE ON *.* TO 'replica'@'192.168.1.114' IDENTIFIED BY '123456';
+GRANT ALL ON *.* TO 'replica'@'192.168.1.101' IDENTIFIED BY '123456';
+
+GRANT SELECT,SUPER,RELOAD ON *.* TO 'replica'@'192.168.1.114' IDENTIFIED    BY '123456';                                                                         
+3) Flush all tables and Block writes to restrict  changes during replication  configration 
+
+FLUSH TABLEs WITH READ LOCK;
+
+4) MAke a binary backup database directory 
+
+ mysqldump --all-databases --master-data >dbdump.db
+
+5)  Restore theba
+
+
+
+6) Record the mater Server binary Log file name and offset 
+ show master status;
+
+file name : mysql-bin.000001
+ofset : 707
+
+7) Release the Lock on the tables.
+unlock tables;
+
+8) setting master server id  
+server-id =1
+
+9)start the slave server and  configure replication
+
+CHANGE MASTER TO MASTER_HOST='192.168.100.46', MASTER_USER='repl',
+MASTER_PASSWORD='a4n-vhLU1u', MASTER_LOG_FILE=' mysql-bin.000013',
+ MASTER_LOG_POS=16946333;
+
+10) start slave;
+show slave status\G
+show process list 
+confirm the existense of 'Relay log and Index files' in data directory
+ls -ltr /var/lib/mysql
+
+11) confirm replication 
+
+
+

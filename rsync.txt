@@ -1,0 +1,14 @@
+APPLEIPADBLOGS.COM
+
+rsync -r -a -v -e "ssh -l root" --delete 207.21.210.44:/varwww/html/prem /var/www/html/prem 
+
+rsync -r -a -v -e "ssh -l jerry" --delete /var/www/html/prem  192.168.100.44:/var/www/html/prem 
+
+rsync -avrR --links  /var/www/html/ --rsh=/usr/bin/ssh 192.168.1.114:/
+
+#!/bin/bash
+MASTER="master-server-ip"
+DIR="/var/www/change-me"
+LDIR="/local/dir"
+SSH="/usr/bin/ssh"
+rsync -avrR --links --rsh=$SSH $MASTER:$DIR $LDIR

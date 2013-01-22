@@ -1,0 +1,24 @@
+1) scheduler 
+Rules
+
+ a  minutes (0-59)
+ B) hour (0-23)
+ c) day of the month 
+ d) month (1-12)
+ e) day of thw week (Sun,Mon etc or 0-7)
+ f) command to exexcute 
+  
+
+Wakes up every minute in search of program to executes
+
+reads cron entries from multiple 
+
+cron.d/       
+cron.deny            denies cron execution by user 
+cron.monthly/
+cron.weekly/
+cron.daily/  
+cron.hourly/ 
+crontab
+
+crontab -l -u username 

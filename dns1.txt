@@ -1,0 +1,19 @@
+zone "localdomain" IN {
+        type master;
+        file "localdomain.zone";
+        allow-update { none; };
+};
+
+
+$TTL    86400
+@               IN SOA  prem.local.  root.prem.local. (
+                                        42              ; serial (d. adams)
+                                        3H              ; refresh
+                                        15M             ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+                IN NS   ns1
+                IN MX   10      mail
+                IN A    192.168.1.5
+ns1             IN A    192.168.1.5
+www             IN A    192.168.1.5

@@ -1,0 +1,60 @@
+Browsings 
+smbd (139 /445cifs)
+
+1 smbd  is responsible for binding 139 tcp with windows for connectivity
+
+445 is reserved for cifs and it is used in the latest version of windows
+
+
+
+nmbd bind to udp  137/138 
+
+netbios name registration /session  wins registration
+
+winbind allows the mapping of usrs /groups bten Linux and uinx and windows 
+
+
+
+this
+
+-------------------------------- 
+DMBS - Domain master browsers 
+
+a.collating the browse list for a entire network
+--------------------------------
+
+Lmbs -local master browser
+  
+a. collating the browse list of a given sub net 
+--------------------------------
+
+
+
+workgroup = MYGROUP
+
+
+
+ security = user
+
+
+
+find smb is used find the local master browser and domain master browser
+
+ smbtree is used find the shares 
+
+
+
+[myshare]
+;   comment = Mary's and Fred's stuff
+;   path = /usr/somewhere/shared
+;   valid users = mary fred
+;   public = no
+;   writable = yes
+;   printable = no
+;   create mask = 0765
+
+
+[homes]
+   comment = Home Directories
+   browseable = no
+   writable = yes

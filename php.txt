@@ -1,0 +1,8 @@
+
+
+[root@a-sys1 ~]# yum search "php" | grep -i gd
+php-gd.i386 : A module for PHP applications for using the gd graphics library
+
+[root@a-sys1 ~]# yum install php-gd
+Loading "dellsysidplugin2" plugin
+etc etc

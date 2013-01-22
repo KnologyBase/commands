@@ -1,0 +1,2 @@
+tr trnaslate uper case to lower case or vise versa 
+

@@ -1,0 +1,118 @@
+NFS developed by Sun micro suystem 
+
+Features 
+
+nfs-utls
+
+
+1) Transparent access to remote file system 
+
+
+/path_to directory 
+
+define rules per ip adress or subnet 
+
+
+exportfs -v         show all nfs 
+/nfs1           192.168.1.0/24(rw,wdelay,no_root_squash,no_subtree_check,anonuid=65534,anongid=65534) 
+
+
+exports -a          mount nfs all 
+
+Examples
+
+    To export all directories in the /etc/exports file, enter:
+
+    exportfs -a 
+
+    To export one directory from the /etc/exports file, enter:
+
+    exportfs /home/notes
+
+    In this example, the /home/notes directory is exported.
+    Note:
+    For this command to work, the /home/notes directory must be specified in the /etc/exports file.
+    To unexport a directory, enter:
+
+    exportfs -u /home/notes
+
+    In this example, the /home/notes directory is unexported.
+    To display the name of the directory currently being exported, enter:
+
+    exportfs -v
+
+    To export a directory that is not specified in the /etc/exports file, enter:
+
+    exportfs -i /home/zeus
+
+    In this example, the /home/zeus directory is exported without restrictions.
+    To export a directory and give netgroup members permission to access this directory, enter:
+
+    exportfs access=cowboys:oilers /home/notes -o 
+
+    In this example, the /home/notes directory is exported and permits users of cowboys and oilers host machines to have access.
+    To export a directory with different options from the /etc/exports file, enter:
+
+    exportfs -i -o root=zorro:silver /directory
+
+    In this example, the /directory directory is exported and allows root user access to zorro and silver host machines, regardless of the access permissions specified in the /etc/exports file.
+    To export the /common/docs directory with write permissions to clients using Kerberos authentication, but read-only permissions to clients using UNIX authentication, add the following text to the /etc/exports file:
+
+    /common/docs -sec=krb5,rw,sec=sys,ro
+
+    Then enter exportfs /common/docs to perform the export.
+    To create a referral at /usr/info to the /usr/info directory on host infoserver, add the following line to /etc/exports and then export /usr/info:
+
+    /usr/info -vers=4,refer=/usr/info@infoserver
+
+    To specify replicas for the /common/info directory at hosts backup1 and backup2, add the following line to /etc/exports and then export /common/info:
+
+    /common/info -vers=4,replicas=/common/info@backup1:/common/info@backup2,<other options>
+
+    To export the /common/docs directory with both version 3 and version 4, enter the following command:
+
+    exportfs -V 3:4 /common/docs
+
+    To export all of the version 4 entries in the /etc/exports file, enter the following command:
+
+    exportfs -a -V 4
+
+    To unexport the /common/docs directory only for version 3, enter the following command:
+
+    exportfs -u -V 3 /common/docs
+
+    To unexport all of the version 3 entries in the /etc/xtab file, enter the following command:
+
+    exportfs -ua -V 3
+
+    To specify referrals for the /common/docs directory at hosts named s1, s2 and s3 and scatter them fully, add the following line to the /etc/exports file and then export the /common/docs directory:
+
+    /common/docs -vers=4,refer=/common/docs@s1:/common/docs@s2:/common/docs@s3,scatter=full
+
+    To specify replicas for the /common/docs directory at hosts named s1, s2, s3 and s4 and scatter them partially (the first fail over server is s1 for all combinations), add the following line to the /etc/exports file and then export the /common/docs directory:
+
+    /common/docs -vers=4,noauto,replicas=/common/docs@s1:/common/docs@s2:/common/docs@s3:/common/docs@s4,
+
+    scatter=partial
+
+mount -t nfs servername or ipadd:/nfs /nfs 
+
+no_root_squash
+
+showmount -a server or ipaddress
+
+
+nfsstat -z
+Resets all counters.
+
+nfsstat -sz
+Zeros server-side RPC and NFS statistics.
+
+nfsstat -cz
+Zeros client-side RPC and NFS statistics.
+
+nfsstat -crz
+Zeros client-side RPC statistics only.
+
+
+

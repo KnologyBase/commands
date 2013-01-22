@@ -1,0 +1,32 @@
+The mpstat command is used to report the activities of each of the available CPUs on a
+multiprocessor server. Global average activities among all CPUs are also reported. The
+mpstat utility is part of the sysstat package.
+
+
+mpstat -P ALL
+
+
+mpstat 3 3
+
+iostat 
+
+Performance problems can be encountered when too many files are opened, read and written
+to, then closed repeatedly. This could become apparent as seek times (the time it takes to
+move to the exact track where the data is stored) start to increase. Using the iostat tool, you
+can monitor the I/O device loading in real time. Different options enable you to drill down even deeper to gather the necessary data.
+
+
+vmstat provides information about processes, memory, paging, block I/O, traps, and CPU
+activity. The vmstat command displays either average data or actual samples. The sampling
+mode is enabled by providing vmstat with a sampling frequency and a sampling duration.
+
+
+
+sar
+
+The sar command is used to collect, report, and save system activity information. The sar
+command consists of three applications: sar, which displays the data, and sa1 and sa2, which
+are used for collecting and storing the data. The sar tool features a wide range of options so
+be sure to check the man page for it. The sar utility is part of the sysstat package.
+
+sar -u 3 10

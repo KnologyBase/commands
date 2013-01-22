@@ -1,0 +1,92 @@
+Alias /manual/  /var/www/manual/
+
+
+Creating Authentication 
+
+htpasswd -c filename username
+
+
+<Directory  /var/www/html/prem>
+AuthType     Basic
+AuthName     "Basic Auth"
+AuthUserFile /etc/httpd/conf/basic
+Require valid-user
+</Directory>
+
+
+Creating virtual host
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@dummy-host.example.com
+    DocumentRoot /www/docs/dummy-host.example.com
+    ServerName dummy-host.example.com
+    ErrorLog logs/dummy-host.example.com-error_log
+    CustomLog logs/dummy-host.example.com-access_log common
+</VirtualHost>
+
+
+
+Enabling User home directories
+
+Public_html       		// for configuring home directories to public
+
+Enable or # 
+
+<IfModule mod_userdir.c>     
+
+
+#UserDir disable               // enbling user directory 
+
+
+
+
+#<Directory /home/*/public_html>
+#    AllowOverride FileInfo AuthConfig Limit
+#    Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+#    <Limit GET POST OPTIONS>
+#        Order allow,deny
+#        Allow from all
+#    </Limit>
+#    <LimitExcept GET POST OPTIONS>
+#        Order deny,allow
+#        Deny from all
+#    </LimitExcept>
+#</Directory>
+
+Apache Logs 
+
+Categories 
+
+200- good
+300 - redirects
+400 - client-invoked errors
+500 - server-invoked errors
+
+
+Log Format 
+
+%h - host (IP)
+%l - IDENT (deprecated)
+%u - user
+%t - timestamp
+%r - request method ( Get/POST)	
+%s - status	(2xx, 3xx ,4xx)
+
+
+
+SSL 
+openssl genrsa -des3 -out www.netbenefitsplus.us.key 2048                    //with passphrase 
+openssl genrsa  -out www.netbenefitsplus.us.key 2048                         //without passphrase 
+openssl req -new -key  betteredits.com.key   -out betteredits.com.csr  //to genaerate csr 
+
+
+openssl rsa -in homestagerbusinessbuilder.com.key1  -out  1homestagerbusinessbuilder.com.key
+openssl req -in homestagerbusinessbuilder.com.csr -noout -text
+
+Redirect / https://homestagerbusinessbuilder.com/
+
+RewriteCond %{HTTP_HOST} ^leveragepoint\.com$ [NC]
+RewriteRule ^(.*)$ http://www.leveragepoint.com/$1 [L,R=301]
+
+ RewriteCond %{HTTP_HOST} ^blog\.leveragepoint\.com$ [NC]
+ RewriteRule ^(.*)$ http://www.leveragepoint.com/blog/$1 [L,R=301]

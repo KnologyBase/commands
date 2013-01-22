@@ -1,0 +1,57 @@
+1) Reset Root Password 
+
+/etc/init.d/mysqld stop
+
+mysqld_safe --skip-grant-tables &
+
+mysql -u root
+
+2)Setup new MySQL root user password
+
+mysql> use mysql;
+mysql> update user set password=PASSWORD("12345") where User='root';
+mysql> flush privileges;
+mysql> quit
+
+SET PASSWORD = PASSWORD('mypass');
+
+/etc/init.d/mysql stop           // stop the sql server
+
+3) Creating  A USer
+
+CREATE USER 'addventures'@'localhost' IDENTIFIED BY 'addv3ntures!';
+
+GRANT ALL PRIVILEGES ON *.* TO 'addventures'@'localhost' WITH GRANT OPTION;
+ 
+GRANT ALL PRIVILEGES ON *.* TO 'comixdbuser'@'%'  WITH GRANT OPTION;  //for remote ips to connect 3306 
+
+ UPDATE mysql.user SET Password=PASSWORD('123')  WHERE User='addventures' AND Host='%';
+
+4) Checking Users in Mysql 
+select host, user, password from mysql.user;
+
+ SHOW GRANTS FOR 'admin'@'localhost';
+
+5) Backup script 
+
+#!/bin/bash
+PWD=/cronbackup/`date +%x`
+DBFILE=$PWD/databases.txt
+MUSER="root"     # USERNAME
+MPASS="HK3ug-rjn0"      # PASSWORD
+GZIP="$(which gzip)"
+
+# No user servicable parts below
+
+mkdir -p $PWD
+rm -f $DBFILE
+/usr/bin/mysql -u$MUSER -p$MPASS mysql -Ns -e "show databases" > $DBFILE
+for i in `cat $DBFILE` ; do mysqldump --opt -u$MUSER -p$MPASS $i | $GZIP -9 > $PWD/$i.sql.gz ; done
+
+
+6) Mysql dump with specific tables;
+
+	
+
+
+

@@ -1,0 +1,18 @@
+Updating sites in a order stage to svn to production 
+
+applying patches 
+
+Upgrading to latest version 
+
+checking svn updates regularly on stage and production 
+
+sql databases 
+
+control panel for User adminstration 
+
+
+Clustering of  mysql  server 
+
+
+
+

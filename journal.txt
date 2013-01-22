@@ -1,0 +1,9 @@
+The ext3 and ReiserFS file systems introduced journaling capabilities to Linux systems.
+Journaling provides for fast and effective recovery in case of disk crashes, instead of using
+e2fsck or fsck. With journaling, a log is kept of all file system actions, which are placed in
+a journal file. In the event of a crash, Linux only needs to read the journal file and replay it
+ to restore the system to its previous (stable) state. Files that were in the process of writing
+ to the disk can be restored to their original state. Journaling also avoids lengthy fsck checks 
+on reboots that occur when your system suddenly loses power or freezes and has to be restarted 
+physically. Instead of using fsck to manually check each file and directory, your
+system just reads its journal files to restore the file system.

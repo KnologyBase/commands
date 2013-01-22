@@ -1,0 +1,46 @@
+smtp 25 
+
+imap 143/tcp
+
+pop  110
+
+
+postfix version 2.3
+
+
+First check  these files exists 
+
+
+a) /etc/aliases
+ 
+b) /etc/aliases.db
+
+newlaiases to create aliases.db 
+
+
+
+
+
+Aliases 
+
+5 types of aliases 
+ a) 1 to 1   eg ..  postmaster : prem
+ B) 1 to many(list) sales : prem, vinod
+ C) include e.g. support : :include:/home/prem/list.txt
+ d) file  - e.g   abuse : /var/log/mail/abuse.mail
+ E) Pipes - e.g. help: !/usr/local/bi/sendhelp	
+
+Cannonical  names
+
+
+postmap	
+
+
+
+
+
+
+
+
+
+

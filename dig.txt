@@ -1,0 +1,64 @@
+ 
+# get the A record for any record without a label 
+# but will always return the SOA record for the domain
+dig example.com
+# get the MX record for the domain 
+dig example.com mx
+# get the A record for the host
+dig www.example.com
+# get all domain records if allowed
+dig example.com axfr
+# get all records with no label for the domain 
+dig example.com any
+# typically returns SOA, NS, MX and domain SPF if defined 
+
+
+
+
+
+simple host lookup - defaults to an A RR
+dig www.example.com
+# or could have been written as - order important
+dig www.example.com a
+# identified option format - order not important
+dig -t a www.example.com
+# use the dns at 192.168.2.224 for the query
+dig @192.168.2.224 www.example.com a
+# use the dns at ns1.example.com for the query
+dig @ns1.example.com www.example.com a
+# reverse map query - returns PTR RR
+dig -x 192.168.2.224
+Domain Query
+# simple domain lookup - returns any A RR without a label
+# even if none present will return the domain SOA RR
+dig www.example.com
+# quick domain lookup
+# return all RR without labels - typically gets SOA, NS, MX 
+# and domain SPF if present
+dig example.com any
+# identified option format - order not important
+dig -t any example.com
+# use the dns at 192.168.2.224 for the query
+dig @192.168.2.224 example.com any
+# use the dns at ns1.another.com for the query
+dig @ns1.another.com example.com a
+Multiple Queries
+You can issue multiple queries per command line - as long as each query is clearly identified (or disambiguated).
+
+# multiple domain lookup - returns non-label RRs for both domains
+dig example.com any another.com any
+# multiple domain lookup - returns A RR for first and non-label RRs
+# for second domains
+dig example.com another.com any
+# multiple domain lookup - returns non-label RRs for first domains
+# and A RR for second
+dig example.com any another.com
+# if you start with one format you must be consistent 
+# - this fails on the second query
+dig example.com -t any another.com any
+# but this works
+dig example.com -t any another.com -t any
+# and yes this works
+dig example.com any another.com any yetanother.com any
+# and so does this
+dig www.example.com www.another.com fred.yetanother.com

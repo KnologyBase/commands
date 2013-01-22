@@ -1,0 +1,70 @@
+DHCP 
+
+Dhcp 3.0.5 
+
+port 67 68
+
+2) leases the adress and related infornation on predefined values 
+
+1 day 
+1 week
+
+1 month 
+
+
+3) DHCP uses UDP protocol and layer-2 information to request an assin adress 
+
+4)  DHCP -DORA
+
+Discovery -client broadcast on the local subnet
+offer  -returned by the DHCP server 
+Request -formal addrequst by client
+Acceptance -Acknowledgement 
+
+Dhcp record leases /var/lib/dhcpd/dhcpd.leases
+
+DHCP for client /var/lib/dhcpclient/dhcpd-eth0.lease 
+
+
+dhclient activates a connection to a DHCP server for your network. The function of a DHCP server is to lease IP addresses. Normally activated during the boot process through the applicable ifcfg-* script in the /etc/sysconfig/network-scripts directory.
+
+
+
+
+vi /etc/dhcpd.conf
+
+dhcp reseveration 
+
+static adress and mac id 
+
+ddns-update-style interim;
+ignore client-updates;
+
+subnet 192.168.0.0 netmask 255.255.255.0 {
+
+# --- default gateway
+        option routers                  192.168.0.1;
+        option subnet-mask              255.255.255.0;
+
+        option nis-domain               "domain.org";
+        option domain-name              "domain.org";
+        option domain-name-servers      192.168.1.1;
+
+        option time-offset              -18000; # Eastern Standard Time
+#       option ntp-servers              192.168.1.1;
+#       option netbios-name-servers     192.168.1.1;
+# --- Selects point-to-point node (default is hybrid). Don't change this unless
+# -- you understand Netbios very well
+#       option netbios-node-type 2;
+
+        range dynamic-bootp 192.168.0.128 192.168.0.254;
+        default-lease-time 21600;
+        max-lease-time 43200;
+
+        # we want the nameserver to appear at a fixed address
+        host ns {
+                next-server marvin.redhat.com;
+                hardware ethernet 12:34:56:78:AB:CD;
+                fixed-address 207.175.42.254;
+        }
+}

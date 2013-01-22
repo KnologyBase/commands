@@ -1,0 +1,21 @@
+The postfix command controls the operation of the mail system. It is the interface for starting and stopping the mail system, and for some other administrative operations. This command is reserved to the super-user. 
+
+The postalias command maintains Postfix alias databases. This is the program behind the newaliases command. 
+
+The postcat command displays the contents of Postfix queue files. This is a limited, preliminary utility. This program is likely to be superseded by something more powerful that can also edit Postfix queue files. 
+
+The postconf command displays Postfix main.cf parameters: actual values, default values, or parameters that have non-default settings. This is a limited, preliminary utility. This program is likely to be superseded by something more powerful that can not only list but also edit the main.cf file. 
+
+The postdrop command is the mail posting utility that is run by the sendmail command in order to deposit mail into the maildrop queue directory. 
+
+The postkick command makes some internal communication channels available for use in, for example, shell scripts. 
+
+The postlock command provides Postfix-compatible mailbox locking for use in, for example, shell scripts. 
+
+The postlog command provides Postfix-compatible logging for shell scripts. 
+
+The postmap command maintains Postfix lookup tables such as canonical, virtual and others. It is a cousin of the UNIX makemap command. 
+
+The postqueue command is the utility that is run by the sendmail command in order to flush or list the mail queue. 
+
+The postsuper command maintains the Postfix queue. It removes old temporary files, and moves queue files into the right directory after a change in the hashing depth of queue directories. This command is run at mail system startup time. 

@@ -1,0 +1,69 @@
+1) bios intialization
+
+2)Boot loader  
+boot from 
+
+3) kernel intialization
+ 		
+	Device detection
+	Device	drive intialiation
+	Mounts root file systems RO
+	Load initial process (init)
+
+4) init scripts started
+
+	rc.sysinit
+	rc?.D
+	rc.local
+
+
+
+
+
+Grub Grand & Unified Boot LOader
+
+ a) command Line inetrface availabale at boot promt
+ b) Boot from ect2/ext3 Reiser fs, JFS, fat, minix 
+ c) Support MD5 password encrption
+
+
+ 
+/sbin/grub-install /dev/hda
+
+
+chroot  /mnt/sysimage
+
+exit
+
+
+
+root (hd0,0)
+setup (hd0)
+quit
+
+-------------------------------
+
+/etc/sysini SYSTEM initailition scripts 
+
+Activate udev & selinux
+
+Set Kernel paramaetr 
+
+set system clock 
+
+load key maps
+
+enable se\wap partitions 
+
+set host name 
+
+root file system check and remount 
+Activate raid and LVM
+Enable disk quotas
+check and mount other file syatem 
+
+cleans up stale locks and pid file
+
+cant find root vg
+ 
+
