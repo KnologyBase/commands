@@ -79,6 +79,8 @@ openssl genrsa -des3 -out www.netbenefitsplus.us.key 2048                    //w
 openssl genrsa  -out www.netbenefitsplus.us.key 2048                         //without passphrase 
 openssl req -new -key  betteredits.com.key   -out betteredits.com.csr  //to genaerate csr 
 
+openssl x509 -req -days 365 -in  -signkey  -out  
+
 
 openssl rsa -in homestagerbusinessbuilder.com.key1  -out  1homestagerbusinessbuilder.com.key
 openssl req -in homestagerbusinessbuilder.com.csr -noout -text
