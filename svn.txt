@@ -7,5 +7,8 @@ svn co  https://addventures.svn.beanstalkapp.com/quitnowri/trunk/
 rm -rf `find . -type d -name .svn`
 
 
+svn propset svn:ignore "*" log/             //ignore directories
+
+
 
 
