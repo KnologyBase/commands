@@ -1,0 +1,14 @@
+8084 	TCP 	luci (Conga user interface server) 	Example 2.2, “Port 8084: luci (Cluster Node or Computer Running luci)”
+11111 	TCP 	ricci (Conga remote agent) 	Example 2.3, “Port 11111: ricci (Cluster Node and Computer Running luci)”
+
+
+luci_admin start 
+
+clustat -i 1 // to check nodes thaht are running and services 
+
+cman_tool nodes 		//displays nodes
+
+
+ cman_tool status		//displays everthing
+ 
+ ricci 

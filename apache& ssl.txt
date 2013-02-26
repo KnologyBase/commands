@@ -73,6 +73,13 @@ Log Format
 %s - status	(2xx, 3xx ,4xx)
 
 
+Not Displaying Apache version and Os version
+
+ServerSignature Off      /HIdes apache version
+ServerToken   OS/Prod 
+
+
+
 
 SSL 
 openssl genrsa -des3 -out www.netbenefitsplus.us.key 2048                    //with passphrase 
