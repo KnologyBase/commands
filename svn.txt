@@ -11,4 +11,29 @@ svn propset svn:ignore "*" log/             //ignore directories
 
 
 
+SVN SERVER SETUP
+
+1)
+
+
+
+4) edit  /etc/apache2/mods-enabled/dav_svn.conf
+
+5) <Location /svn>
+
+ DAV svn
+
+  SVNParentPath /var/lib/svn
+
+
+  AuthType Basic
+  AuthName "Subversion Repository"
+  AuthUserFile /etc/apache2/dav_svn.passwd
+
+
+
+</Location>
+3) svnadmin  create svn/trade-wins
+
+4) chown -R www-data:www-data svn/trade-wins/
 
