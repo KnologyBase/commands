@@ -54,4 +54,7 @@ for i in `cat $DBFILE` ; do mysqldump --opt -u$MUSER -p$MPASS $i | $GZIP -9 > $P
 	
 
 
+7) Mysqlcheck and auto repair
+mysqlcheck -u root -p --auto-repair --check --optimize --all-databases
+
 
