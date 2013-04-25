@@ -1,0 +1,3 @@
+sftp -oPort=18999 anuadmin@alpha.cambric.com 
+
+!dm!nvam
