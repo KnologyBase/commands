@@ -3,3 +3,9 @@
 find  -type f -print0 | xargs -0 grep -i
 
 date -s "17 JAN 2013 06:42:20"
+
+cat dav_svn.conf  |grep -v '#'
+
+find . -type f -exec \
+   perl -i -pe's/var\/www\/html\/dev.iko.anubavam.com/www\/beta_ikointl_com\/public_html/g' {} +
+

@@ -1,0 +1,14 @@
+
+edit /etc/syconfig/vncservers
+
+
+ VNCSERVERS="2:anubavamcentos"
+ VNCSERVERARGS[2]="-geometry 800x600 -nolisten tcp -localhost"
+~                                                                    
+
+
+yum -y install pixman
+
+yum install libXfont xorg-x11-xfs xorg-x11-xfs-utils xorg-x11-xinit xorg-x11-xdm
+
+
