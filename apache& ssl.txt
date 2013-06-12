@@ -80,7 +80,6 @@ ServerToken   OS/Prod
 
 
 
-
 SSL 
 openssl genrsa -des3 -out www.netbenefitsplus.us.key 2048                    //with passphrase 
 openssl genrsa  -out www.netbenefitsplus.us.key 2048                         //without passphrase 

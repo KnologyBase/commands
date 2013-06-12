@@ -1,3 +1,5 @@
 sftp -oPort=18999 anuadmin@alpha.cambric.com 
 
 !dm!nvam
+
+chroot_local_user=YES
