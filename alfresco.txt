@@ -1,0 +1,11 @@
+
+
+Start up Script 
+
+/opt/alfresco/tomcat/scripts/ctl.sh
+
+
+tailf  /opt/alfresco/tomcat/logs/catalina.out 
+
+vi /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
+
