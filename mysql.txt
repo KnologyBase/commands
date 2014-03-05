@@ -58,3 +58,16 @@ for i in `cat $DBFILE` ; do mysqldump --opt -u$MUSER -p$MPASS $i | $GZIP -9 > $P
 mysqlcheck -u root -p --auto-repair --check --optimize --all-databases
 
 
+Admin commands 
+
+8) To find out how many max_connections are allowed 
+
+mysql> select @@max_connections;
+
+mysql> set global max_connections = 200;
+
+/etc/my.cnf to add max_connections = 200
+
+
+
+
