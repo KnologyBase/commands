@@ -1,6 +1,6 @@
  
 git init
-git add README.md
+git add  .
 git commit -m "first commit"
 git remote add origin https://addventures.git.beanstalkapp.com/bcbsri-aquiamerge.git 
-git push -u origin maste
+git push -u origin master

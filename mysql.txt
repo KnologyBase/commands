@@ -27,6 +27,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'comixdbuser'@'%'  WITH GRANT OPTION;  //for remo
 
  UPDATE mysql.user SET Password=PASSWORD('123')  WHERE User='addventures' AND Host='%';
 
+grant  readonly permissions.
+
+ GRANT SELECT, SHOW VIEW ON coccreatrixcampus.* TO 'creatrix'@'localhost' IDENTIFIED BY 'hTCSaHdq5g';
 4) Checking Users in Mysql 
 select host, user, password from mysql.user;
 
@@ -69,5 +72,17 @@ mysql> set global max_connections = 200;
 /etc/my.cnf to add max_connections = 200
 
 
+
+mydumper
+xtradbbackup
+
+
+
+Here's the syntax to get the schema only dump:
+
+$ mysqldump --no-data --all-databases > db_schema_`/bin/date +%m%d%Y`.mysql
+Here's how you get the data only dump:
+
+$ mysqldump --no-create-info --all-databases --complete-insert --skip-quote-names > db_data__`/bin/date +%m%d%Y`.mysql
 
 
