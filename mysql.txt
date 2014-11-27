@@ -86,3 +86,22 @@ Here's how you get the data only dump:
 $ mysqldump --no-create-info --all-databases --complete-insert --skip-quote-names > db_data__`/bin/date +%m%d%Y`.mysql
 
 
+Hello,
+
+I've taken a look at your database and I have several suggestions.
+
+1. Raise the key_buffer to 32M.
+
+2. Enable the query cache by adding this ling to your my.cnf. 'query_cache_size=64M'.
+
+3. Raise the table_cache to 1024.
+
+4. Raise tmp_table_size and max_heap_table_size to 64M.
+
+5. Set the thread_cache_size to 26.
+
+6. Raise the innodb_buffer_pool_sizr to 12G
+
+7. Increase the innodb_log_file_size to 512M.
+
+
