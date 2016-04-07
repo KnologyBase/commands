@@ -1,8 +1,27 @@
+
+http://www.sysadminshare.com/2013/08/linux-lvm-interview-questions-part-2.html
+
+http://www.unixarena.com/2013/08/linux-lvm-volume-group-operations.html
+
+LVM2 uses device mapper driver contained in 2.6 kernel version.
+For 2.4 based kernels, the maximum LV size is 2TB. 
+For 32-bit CPUs on 2.6 kernels, the maximum LV size is 16TB.
+For 64-bit CPUs on 2.6 kernels, the maximum LV size is 8EB. 
+
+/etc/lvm                - default lvm directory location
+/etc/lvm/backup         - where the automatic backups go
+/etc/lvm/cache          - persistent filter cache
+/etc/lvm/archive        - where automatic archives go after a volume group change
+/var/lock/lvm             - lock files to prevent metadata corruption
+
+# Files
+/etc/lvm/lvm.conf       - main lvm configuration file
+$HOME/.lvm              - lvm history 
+
 fdisk -l
 
 
 pvcreate /dev/sda4 /dev/sdb4
-
  pvdisplay
 
 vgcreate premvolgroup /dev/sda4 /dev/sdb4
@@ -17,11 +36,9 @@ vgcreate premvolgroup /dev/sda4 /dev/sdb4
 
   mount
 
-
   lvresize -L 700MB /dev/premvolgroup/vinodlogvol
 
- 
-   resize2fs  /dev/premvolgroup/vinodlogvol
+ resize2fs  /dev/premvolgroup/vinodlogvol
 
  
 Lvm can be backup  by
