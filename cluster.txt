@@ -1,4 +1,11 @@
+http://www.thegeekstuff.com/2015/03/linux-redhat-cluster/
+
+https://www.ibm.com/developerworks/community/blogs/mhhaque/resource/RHCS_IBM_POWER.pdf?lang=en
+
+https://dineshjadhav.wordpress.com/linux-cluster-commands/
+
  cman_tool nodes 		//displays nodes
+
 
 
  cman_tool status		//displays everthing
